@@ -1,0 +1,7 @@
+# 忽略电子书和pdf文件
+
+
+*.pdf
+*.epub
+*.mobi
+*.azw
