@@ -1,0 +1,27 @@
+#!/usr/bin/env python
+# coding: utf-8
+
+import fitz
+import os
+
+
+pdf_names = next(os.walk("./raw_pdf/"))[-1]
+for pdf_name in pdf_names:
+    # print(pdf_path)
+
+    fn = "./raw_pdf/"+pdf_name
+
+    doc = fitz.open(fn)  # 打开笔记文件
+
+    for i in range(doc.page_count):
+        page = doc[i]  # 加载一个页面
+        annot = page.first_annot
+        while annot:
+            annot = page.delete_annot(annot)
+
+
+    doc.save("./pdf/"+pdf_name,
+             garbage=3,  # eliminate duplicate objects
+             deflate=True,  # compress stuff where possible
+             )
+    doc.close()

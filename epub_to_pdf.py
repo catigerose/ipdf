@@ -43,10 +43,12 @@ def epub_to_pdf(fn,equb_dir="./epub/",pdf_dir="./pdf/"):
     # say how many named links we skipped
     #if link_cnti > 0:
         #print("Skipped %i named links of a total of %i in input." % (link_skip, link_cnti))
+
 epub_names = next(os.walk("./epub/"))[-1]
 for epub_name in epub_names:
     try:
-        epub_to_pdf(epub_name)  
+        epub_to_pdf(epub_name) 
+        print(epub_name,"-已转换为pdf") 
     except Exception as e:
-        print(epub_name,e)
+        print(epub_name,"-----------------------------转换异常")
         continue
