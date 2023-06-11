@@ -21,14 +21,14 @@ def get_anot_pages(fn):
 
     doc.delete_pages(dels)
 
-    doc.save("./anot_pages/"+fn[:-4]+"_anot_pages"+fn[-4:])
+    doc.save("./annot_pages/"+fn[:-4]+"_anot_pages"+fn[-4:])
 
     doc.close()
 
 
 pdf_names = next(os.walk("./raw_pdf/"))[-1]
 for pdf_name in pdf_names:
-    print(pdf_name)
+    
     try:
         get_anot_pages(pdf_name)
     except Exception as e:
