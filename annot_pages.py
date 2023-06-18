@@ -27,6 +27,9 @@ def get_anot_pages(fn):
 
 
 pdf_names = next(os.walk("./raw_pdf/"))[-1]
+for p in pdf_names:
+    if p ==".gitignore":
+        pdf_names.remove(p)
 for pdf_name in pdf_names:
     
     try:

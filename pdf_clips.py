@@ -11,6 +11,9 @@ def refresh_cursor(cursor, h, gap=2):
 
 
 pdf_names = next(os.walk("./raw_pdf/"))[-1]
+for p in pdf_names:
+    if p ==".gitignore":
+        pdf_names.remove(p)
 for pdf_name in pdf_names:
     # print(pdf_path)
 

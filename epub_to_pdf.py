@@ -45,6 +45,9 @@ def epub_to_pdf(fn,equb_dir="./epub/",pdf_dir="./pdf/"):
         #print("Skipped %i named links of a total of %i in input." % (link_skip, link_cnti))
 
 epub_names = next(os.walk("./epub/"))[-1]
+for p in epub_names:
+    if p ==".gitignore":
+        epub_names.remove(p)
 for epub_name in epub_names:
     try:
         epub_to_pdf(epub_name) 
